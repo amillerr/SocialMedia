@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 import Firebase
+import FirebaseStorage
 
 struct LoginView: View {
     //MARK: User Details
@@ -181,6 +182,8 @@ struct RegisterView: View {
                 }
             }
         }
+        //MARK: Displaying alert
+        .alert(errorMessage, isPresented: $showError, actions: {})
     }
     
     @ViewBuilder
@@ -242,7 +245,12 @@ struct RegisterView: View {
     func registerUser() {
         Task {
             do {
-                
+                // Step 1: Creating firebase account
+                let user = try await Auth.auth().createUser(withEmail: emailID, password: password)
+                // Step 2: Uploading profile photo into firebase storage
+                guard let userUID = Auth.auth().currentUser?.uid else { return }
+                guard let imageData = userProfilePicData else { return }
+                let storageRef = Storage.storage().reference().child("Profile_images").child(userUID).putData(imageData)
             } catch {
                 await setError(error)
             }
