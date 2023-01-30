@@ -125,6 +125,8 @@ struct RegisterView: View {
     @State var userProfilePicData: Data?
     @State var showImagePicker: Bool = false
     @State var photoItem: PhotosPickerItem?
+    @State var showError: Bool = false
+    @State var errorMessage: String = ""
     
     //MARK: View properties
     @Environment(\.dismiss) var dismiss
@@ -226,9 +228,7 @@ struct RegisterView: View {
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
 
-            Button {
-                
-            } label: {
+            Button (action: registerUser){
                 //MARK: Login button
                 Text("Sign up")
                     .foregroundColor(.white)
@@ -239,6 +239,24 @@ struct RegisterView: View {
         }
     }
     
+    func registerUser() {
+        Task {
+            do {
+                
+            } catch {
+                await setError(error)
+            }
+        }
+    }
+    
+    //MARK: Displaying errors via Alerts
+    func setError(_ error: Error) async {
+        //MARK: UI must be updated on main thread
+        await MainActor.run(body: {
+            errorMessage = error.localizedDescription
+            showError.toggle()
+        })
+    }
 }
 
 struct LoginView_Previews: PreviewProvider {
