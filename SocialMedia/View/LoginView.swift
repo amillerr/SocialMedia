@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 import Firebase
+import FirebaseFirestore
 import FirebaseStorage
 
 struct LoginView: View {
@@ -246,11 +247,16 @@ struct RegisterView: View {
         Task {
             do {
                 // Step 1: Creating firebase account
-                let user = try await Auth.auth().createUser(withEmail: emailID, password: password)
+                try await Auth.auth().createUser(withEmail: emailID, password: password)
                 // Step 2: Uploading profile photo into firebase storage
                 guard let userUID = Auth.auth().currentUser?.uid else { return }
                 guard let imageData = userProfilePicData else { return }
-                let storageRef = Storage.storage().reference().child("Profile_images").child(userUID).putData(imageData)
+                let storageRef = Storage.storage().reference().child("Profile_images").child(userUID)
+                let _ = try await storageRef.putDataAsync(imageData)
+                // Step 3: Downloading photo URL
+                let downloadURL = try await storageRef.downloadURL()
+                // Step 4: Creating a user firestore object
+                
             } catch {
                 await setError(error)
             }
