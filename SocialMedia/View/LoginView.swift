@@ -36,6 +36,7 @@ struct LoginView: View {
                     .textContentType(.emailAddress)
                     .border(1, .gray.opacity(0.5))
                     .padding(.top, 25)
+                    .textInputAutocapitalization(.never)
                 
                 SecureField("Password", text: $password)
                     .textContentType(.password)
@@ -189,6 +190,9 @@ struct RegisterView: View {
     
     @ViewBuilder
     func HelperView() -> some View {
+        
+        
+        
         VStack(spacing: 12) {
             ZStack {
                 if let userProfilePicData,let image = UIImage(data: userProfilePicData) {
@@ -213,11 +217,13 @@ struct RegisterView: View {
             TextField("Username", text: $userName)
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
+                
 
             
             TextField("Email", text: $emailID)
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
+                .textInputAutocapitalization(.never)
             
             SecureField("Password", text: $password)
                 .textContentType(.password)
@@ -239,6 +245,7 @@ struct RegisterView: View {
                     .hAlign(.center)
                     .fillView(.black)
             }
+            .disableWithOpacity(userName == "" || userBio == "" || emailID == "" || password == "" || userProfilePicData == nil)
             .padding(.top, 12)
         }
     }
@@ -256,6 +263,15 @@ struct RegisterView: View {
                 // Step 3: Downloading photo URL
                 let downloadURL = try await storageRef.downloadURL()
                 // Step 4: Creating a user firestore object
+                let user = User(username: userName, userBio: userBio, userBioLink: userBioLink, userUID: userUID, userEmail: emailID, userProfileURL: downloadURL)
+                // Step 5: Saving user doc into firebase database
+                let _ = try Firestore.firestore().collection("Users").document(userUID ).setData(from: user, completion: {
+                    error in
+                    if error == nil {
+                        //MARK: Print saved successfully
+                        print("Saved successfully")
+                    }
+                })
                 
             } catch {
                 await setError(error)
@@ -281,6 +297,13 @@ struct LoginView_Previews: PreviewProvider {
 
 //MARK: View Extensions for UI Building
 extension View {
+    //MARK: Disabling with opacity
+    func disableWithOpacity(_ condition: Bool) -> some View {
+        self
+            .disabled(condition)
+            .opacity(condition ? 0.6 : 1)
+    }
+    
     func hAlign(_ alignment: Alignment) -> some View {
         self
             .frame(maxWidth: .infinity, alignment: alignment)
