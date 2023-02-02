@@ -11,6 +11,7 @@
 		2524B9B0298845C2005999D0 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2524B9AF298845C2005999D0 /* FirebaseFirestoreSwift */; };
 		2524B9B2298845C2005999D0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2524B9B1298845C2005999D0 /* FirebaseStorage */; };
 		2524B9B4298963BD005999D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524B9B3298963BD005999D0 /* User.swift */; };
+		2524B9B6298C3B61005999D0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524B9B5298C3B60005999D0 /* LoadingView.swift */; };
 		255B65EE29844FCA00A3546C /* SocialMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255B65ED29844FCA00A3546C /* SocialMediaApp.swift */; };
 		255B65F029844FCA00A3546C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255B65EF29844FCA00A3546C /* ContentView.swift */; };
 		255B65F229844FCC00A3546C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 255B65F129844FCC00A3546C /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		2524B9B3298963BD005999D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2524B9B5298C3B60005999D0 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		255B65EA29844FCA00A3546C /* SocialMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		255B65ED29844FCA00A3546C /* SocialMediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaApp.swift; sourceTree = "<group>"; };
 		255B65EF29844FCA00A3546C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				255B66022984561C00A3546C /* LoginView.swift */,
+				2524B9B5298C3B60005999D0 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				2524B9B4298963BD005999D0 /* User.swift in Sources */,
 				255B66032984561C00A3546C /* LoginView.swift in Sources */,
 				255B65F029844FCA00A3546C /* ContentView.swift in Sources */,
+				2524B9B6298C3B61005999D0 /* LoadingView.swift in Sources */,
 				255B65EE29844FCA00A3546C /* SocialMediaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

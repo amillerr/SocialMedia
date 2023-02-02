@@ -20,6 +20,7 @@ struct LoginView: View {
     @State var createAccount: Bool = false
     @State var showError: Bool = false
     @State var errorMessage: String = ""
+    @State var isLoading: Bool = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -134,6 +135,7 @@ struct RegisterView: View {
     @State var photoItem: PhotosPickerItem?
     @State var showError: Bool = false
     @State var errorMessage: String = ""
+    @State var isLoading: Bool = false
     
     //MARK: UserDefaults
     @AppStorage("log_status") var logStatus: Bool = false
@@ -175,6 +177,9 @@ struct RegisterView: View {
         }
         .vAlign(.top)
         .padding(15)
+        .overlay(content: {
+            LoadingView(show: $isLoading)
+        })
         .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
         .onChange(of: photoItem) { newValue in
             //MARK: Extracting UIIMage from PhotoItem
@@ -258,6 +263,7 @@ struct RegisterView: View {
     }
     
     func registerUser() {
+        isLoading = true
         Task {
             do {
                 // Step 1: Creating firebase account
@@ -277,6 +283,10 @@ struct RegisterView: View {
                     if error == nil {
                         //MARK: Print saved successfully
                         print("Saved successfully")
+                        userNameStored = userName
+                        self.userUID = userUID
+                        profileURL = downloadURL
+                        logStatus = true
                     }
                 })
                 
@@ -294,6 +304,7 @@ struct RegisterView: View {
         await MainActor.run(body: {
             errorMessage = error.localizedDescription
             showError.toggle()
+            isLoading = false
         })
     }
 }
