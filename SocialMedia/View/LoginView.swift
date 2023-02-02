@@ -119,6 +119,7 @@ struct LoginView: View {
 
 //MARK: Register view
 struct RegisterView: View {
+    
     //MARK: User Details
     @State var emailID: String = ""
     @State var password: String = ""
@@ -126,13 +127,19 @@ struct RegisterView: View {
     @State var userBio: String = ""
     @State var userBioLink: String = ""
     @State var userProfilePicData: Data?
+    
+    //MARK: View properties
+    @Environment(\.dismiss) var dismiss
     @State var showImagePicker: Bool = false
     @State var photoItem: PhotosPickerItem?
     @State var showError: Bool = false
     @State var errorMessage: String = ""
     
-    //MARK: View properties
-    @Environment(\.dismiss) var dismiss
+    //MARK: UserDefaults
+    @AppStorage("log_status") var logStatus: Bool = false
+    @AppStorage("user_profile_url") var profileURL: URL?
+    @AppStorage("user_name") var userNameStored: String = ""
+    @AppStorage("user_UID") var userUID: String =  ""
     
     var body: some View {
         VStack(spacing: 10) {
@@ -274,6 +281,8 @@ struct RegisterView: View {
                 })
                 
             } catch {
+                //MARK: Deleting created account in case of failure
+                try await Auth.auth().currentUser?.delete()
                 await setError(error)
             }
         }
