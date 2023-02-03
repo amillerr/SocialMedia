@@ -75,6 +75,9 @@ struct LoginView: View {
         }
         .vAlign(.top)
         .padding(15)
+        .overlay(content: {
+            LoadingView(show: $isLoading)
+        })
         
         //MARK: Register view via Sheets
         .fullScreenCover(isPresented: $createAccount) {
@@ -85,15 +88,24 @@ struct LoginView: View {
     }
     
     func loginUser() {
+        isLoading = true
         Task {
             do {
                 //With the help of Swift Concurrency Auth can be done with single line
                 try await Auth.auth().signIn(withEmail: emailID, password: password)
                 print("User found")
+                try await fetchUserData()
             } catch {
                await setError(error)
             }
         }
+    }
+    
+    //MARK: If user if found then fetching user data from firestore
+    func fetchUserData() async throws {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        try await Firestore.firestore().collection("Users").document(userID).getDocument(as: User.self)
+        //MARK: UI updating must be run on main thread
     }
     
     func resetPassword() {
@@ -114,6 +126,7 @@ struct LoginView: View {
         await MainActor.run(body: {
             errorMessage = error.localizedDescription
             showError.toggle()
+            isLoading = false
         })
     }
 }
