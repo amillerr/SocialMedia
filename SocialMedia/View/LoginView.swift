@@ -22,6 +22,12 @@ struct LoginView: View {
     @State var errorMessage: String = ""
     @State var isLoading: Bool = false
     
+    //MARK: User defaults
+    @AppStorage("log_status") var logStatus: Bool = false
+    @AppStorage("user_profile_url") var profileURL: URL?
+    @AppStorage("user_name") var userNameStored: String = ""
+    @AppStorage("user_UID") var userUID: String =  ""
+    
     var body: some View {
         VStack(spacing: 10) {
             Text("Lets Sign you in")
@@ -89,6 +95,7 @@ struct LoginView: View {
     
     func loginUser() {
         isLoading = true
+        closeKeyboard()
         Task {
             do {
                 //With the help of Swift Concurrency Auth can be done with single line
@@ -104,8 +111,16 @@ struct LoginView: View {
     //MARK: If user if found then fetching user data from firestore
     func fetchUserData() async throws {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        try await Firestore.firestore().collection("Users").document(userID).getDocument(as: User.self)
+        let user = try await Firestore.firestore().collection("Users").document(userID).getDocument(as: User.self)
         //MARK: UI updating must be run on main thread
+        await MainActor.run(body: {
+            // Setting userDefaults data and changing app's auth status
+            userUID = userID
+            userNameStored = user.username
+            profileURL = user.userProfileURL
+            logStatus = true
+            
+        })
     }
     
     func resetPassword() {
@@ -277,6 +292,7 @@ struct RegisterView: View {
     
     func registerUser() {
         isLoading = true
+        closeKeyboard()
         Task {
             do {
                 // Step 1: Creating firebase account
@@ -330,6 +346,12 @@ struct LoginView_Previews: PreviewProvider {
 
 //MARK: View Extensions for UI Building
 extension View {
+    // Closing all active keyboards
+    func closeKeyboard() {
+        UIApplication.shared.self.sendAction(#selector(UIResponder.resignFirstResponder), to: nil§, from: nil, for: nil)
+    }
+    
+    
     //MARK: Disabling with opacity
     func disableWithOpacity(_ condition: Bool) -> some View {
         self
