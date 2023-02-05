@@ -50,6 +50,22 @@ struct ProfileView: View {
         }
         .alert(errorMessage, isPresented: $showError) {
         }
+        .task {
+            //This modifier is like onAppear
+            //so fetching for the first time only
+            if myProfile != nil { return }
+            //MARK: Initial fetch
+            await fetchUserData()
+        }
+    }
+    
+    //MARK: Fetching user data
+    func fetchUserData() async {
+        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        guard let user = try? await Firestore.firestore().collection("Users").document(userUID).getDocument(as: User.self) else { return }
+        await MainActor.run(body: {
+            myProfile = user
+        })
     }
     
     //MARK: Logging user out
