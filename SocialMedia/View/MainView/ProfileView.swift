@@ -14,9 +14,10 @@ struct ProfileView: View {
     //MARK: My profile data
     @State private var myProfile: User?
     @AppStorage("log_status") var logStatus: Bool = false
-    //MARK: Error message
+    //MARK: View properties
     @State var errorMessage: String = ""
     @State var showError: Bool = false
+    @State var isLoading: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -44,6 +45,11 @@ struct ProfileView: View {
                 }
             }
         }
+        .overlay {
+            LoadingView(show: $isLoading)
+        }
+        .alert(errorMessage, isPresented: $showError) {
+        }
     }
     
     //MARK: Logging user out
@@ -55,6 +61,7 @@ struct ProfileView: View {
     
     //MARK: Deleting user entire account
     func deleteAccount() {
+        isLoading = true
         Task {
             do {
                 guard let userUID =  Auth.auth().currentUser?.uid else { return }
@@ -76,6 +83,7 @@ struct ProfileView: View {
     func setError(_ error: Error) async {
         //MARK: UI must be run on main thread
         await MainActor.run(body: {
+            isLoading = false
             errorMessage = error.localizedDescription
             showError.toggle()
         })
