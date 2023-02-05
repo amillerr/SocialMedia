@@ -21,11 +21,17 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                
-            }
-            .refreshable {
+            VStack {
+                if let myProfile {
+                    ReusableProfileContent(user: myProfile)
+                .refreshable {
                 //MARK: Refresh user data
+                    self.myProfile = nil
+                    await fetchUserData()
+            }
+                } else {
+                    ProgressView()
+                }
             }
             .navigationTitle("My Profile")
             .toolbar {
