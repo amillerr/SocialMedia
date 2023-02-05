@@ -11,7 +11,7 @@ import SwiftUI
 extension View {
     // Closing all active keyboards
     func closeKeyboard() {
-        UIApplication.shared.self.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
     
