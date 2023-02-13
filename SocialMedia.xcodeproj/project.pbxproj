@@ -27,6 +27,7 @@
 		259B4FE1299017CA006677F7 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 259B4FE0299017CA006677F7 /* SDWebImageSwiftUI */; };
 		25DBC7F3299A4A7500550060 /* CreateNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F2299A4A7500550060 /* CreateNewPost.swift */; };
 		25DBC7F5299A4BFF00550060 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F4299A4BFF00550060 /* Post.swift */; };
+		25DBC7F7299A8B2900550060 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F6299A8B2900550060 /* PostsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		259B4FDD29901517006677F7 /* ReusableProfileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProfileContent.swift; sourceTree = "<group>"; };
 		25DBC7F2299A4A7500550060 /* CreateNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPost.swift; sourceTree = "<group>"; };
 		25DBC7F4299A4BFF00550060 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		25DBC7F6299A8B2900550060 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				2524B9C0298D88F4005999D0 /* ProfileView.swift */,
 				259B4FDD29901517006677F7 /* ReusableProfileContent.swift */,
 				25DBC7F2299A4A7500550060 /* CreateNewPost.swift */,
+				25DBC7F6299A8B2900550060 /* PostsView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				255B65F029844FCA00A3546C /* ContentView.swift in Sources */,
 				2524B9BD298D8450005999D0 /* View+Extensions.swift in Sources */,
 				25DBC7F3299A4A7500550060 /* CreateNewPost.swift in Sources */,
+				25DBC7F7299A8B2900550060 /* PostsView.swift in Sources */,
 				2524B9BA298D824D005999D0 /* RegisterView.swift in Sources */,
 				2524B9B6298C3B61005999D0 /* LoadingView.swift in Sources */,
 				255B65EE29844FCA00A3546C /* SocialMediaApp.swift in Sources */,

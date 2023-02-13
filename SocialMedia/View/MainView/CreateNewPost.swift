@@ -7,6 +7,9 @@
 
 import SwiftUI
 import PhotosUI
+import Firebase
+import FirebaseFirestore
+import FirebaseStorage
 
 struct CreateNewPost: View {
     
@@ -45,7 +48,7 @@ struct CreateNewPost: View {
                 }
                 .hAlign(.leading)
                 
-                Button(action: {}) {
+                Button(action: createPost) {
                     Text("Post")
                         .font(.callout)
                         .foregroundColor(.white)
@@ -133,13 +136,67 @@ struct CreateNewPost: View {
                 }
             }
         }
+        .alert(errorMessage, isPresented: $showError, actions: {})
+        /// - Loading view
+        .overlay {
+            LoadingView(show: $isLoading)
+        }
+    }
+    //MARK: Post content to Firebase
+    
+    func createPost() {
+        isLoading = true
+        showKeyboard = false
+        Task {
+            do {
+                guard let profileURL = profileURL else { return }
+                // Step 1: Uploading image if any
+                // used to delete the post
+                let imageReferenceID = "\(userUID)\(Date())"
+                let storageRef = Storage.storage().reference().child("Post_images").child(imageReferenceID)
+                if let postImageData {
+                    let _ = try await storageRef.putDataAsync(postImageData)
+                    let downloadURL = try await storageRef.downloadURL()
+                    
+                    // Step 3: Create post object with image id and url
+                    let post = Post(text: postText, imageURL: downloadURL, imageReferenceID: imageReferenceID, userName: userName, userUID: userUID, userProfileURL: profileURL)
+                    try await createDocumentAtFirebase(post)
+                } else {
+                    // Step 2: Directly post text data to Firebase (since there is no image present)
+                    let post = Post(text: postText, userName: userName, userUID: userUID, userProfileURL: profileURL)
+                    try await createDocumentAtFirebase(post)
+                }
+            } catch {
+                await setError(error)
+            }
+        }
     }
     
+    func createDocumentAtFirebase(_ post: Post) async throws {
+        /// - Writing document to Firebase Firestore
+        let _ = try Firestore.firestore().collection("Posts").addDocument(from: post, completion: { error in
+            if error == nil {
+                // Post successfully stored at Firestore
+                isLoading = false
+                onPost(post)
+                dismiss()
+            }
+        })
+    }
+    
+    //MARK: Displaying errors as Alert
+    func setError(_ error: Error) async {
+        await MainActor.run(body: {
+            errorMessage = error.localizedDescription
+            showError.toggle()
+        })
+    }
+ }
+
     struct CreateNewPost_Previews: PreviewProvider {
         static var previews: some View {
             CreateNewPost {_ in
                 
-            }
         }
     }
 }
