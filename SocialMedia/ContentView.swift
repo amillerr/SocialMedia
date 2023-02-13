@@ -11,10 +11,13 @@ struct ContentView: View {
     @AppStorage("log_status") var logStatus: Bool = false
     var body: some View {
         //MARK: Redirecting user based on log status
-        if logStatus {
-            MainView()
-        } else {
-            LoginView()
+//        if logStatus {
+//            MainView()
+//        } else {
+//            LoginView()
+//        }
+        CreateNewPost { _ in
+            
         }
     }
 }
