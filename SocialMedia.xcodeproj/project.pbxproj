@@ -26,6 +26,7 @@
 		259B4FDE29901517006677F7 /* ReusableProfileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B4FDD29901517006677F7 /* ReusableProfileContent.swift */; };
 		259B4FE1299017CA006677F7 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 259B4FE0299017CA006677F7 /* SDWebImageSwiftUI */; };
 		25DBC7F3299A4A7500550060 /* CreateNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F2299A4A7500550060 /* CreateNewPost.swift */; };
+		25DBC7F5299A4BFF00550060 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F4299A4BFF00550060 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		255B66022984561C00A3546C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		259B4FDD29901517006677F7 /* ReusableProfileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProfileContent.swift; sourceTree = "<group>"; };
 		25DBC7F2299A4A7500550060 /* CreateNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPost.swift; sourceTree = "<group>"; };
+		25DBC7F4299A4BFF00550060 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				2524B9B3298963BD005999D0 /* User.swift */,
+				25DBC7F4299A4BFF00550060 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				2524B9B4298963BD005999D0 /* User.swift in Sources */,
 				2524B9C1298D88F4005999D0 /* ProfileView.swift in Sources */,
 				259B4FDE29901517006677F7 /* ReusableProfileContent.swift in Sources */,
+				25DBC7F5299A4BFF00550060 /* Post.swift in Sources */,
 				2524B9BF298D84F9005999D0 /* MainView.swift in Sources */,
 				255B66032984561C00A3546C /* LoginView.swift in Sources */,
 				255B65F029844FCA00A3546C /* ContentView.swift in Sources */,
