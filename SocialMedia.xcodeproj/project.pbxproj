@@ -25,6 +25,7 @@
 		255B66032984561C00A3546C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255B66022984561C00A3546C /* LoginView.swift */; };
 		259B4FDE29901517006677F7 /* ReusableProfileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B4FDD29901517006677F7 /* ReusableProfileContent.swift */; };
 		259B4FE1299017CA006677F7 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 259B4FE0299017CA006677F7 /* SDWebImageSwiftUI */; };
+		25DBC7F3299A4A7500550060 /* CreateNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F2299A4A7500550060 /* CreateNewPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		255B65FB298453EA00A3546C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		255B66022984561C00A3546C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		259B4FDD29901517006677F7 /* ReusableProfileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProfileContent.swift; sourceTree = "<group>"; };
+		25DBC7F2299A4A7500550060 /* CreateNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				2524B9BE298D84F9005999D0 /* MainView.swift */,
 				2524B9C0298D88F4005999D0 /* ProfileView.swift */,
 				259B4FDD29901517006677F7 /* ReusableProfileContent.swift */,
+				25DBC7F2299A4A7500550060 /* CreateNewPost.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				255B66032984561C00A3546C /* LoginView.swift in Sources */,
 				255B65F029844FCA00A3546C /* ContentView.swift in Sources */,
 				2524B9BD298D8450005999D0 /* View+Extensions.swift in Sources */,
+				25DBC7F3299A4A7500550060 /* CreateNewPost.swift in Sources */,
 				2524B9BA298D824D005999D0 /* RegisterView.swift in Sources */,
 				2524B9B6298C3B61005999D0 /* LoadingView.swift in Sources */,
 				255B65EE29844FCA00A3546C /* SocialMediaApp.swift in Sources */,
