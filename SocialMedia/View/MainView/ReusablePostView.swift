@@ -33,6 +33,7 @@ struct ReusablePostView: View {
                     }
                 }
             }
+            .padding(15)
         }
         .refreshable {
             /// Scroll to refresh
@@ -51,7 +52,11 @@ struct ReusablePostView: View {
     @ViewBuilder
     func Posts() -> some View {
         ForEach(posts) { post in
-            Text(post.text)
+            PostCardView(post: post) { updatePost in
+                
+            } onDelte: {
+                
+            }
         }
     }
     

@@ -29,6 +29,7 @@
 		25DBC7F5299A4BFF00550060 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F4299A4BFF00550060 /* Post.swift */; };
 		25DBC7F7299A8B2900550060 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F6299A8B2900550060 /* PostsView.swift */; };
 		25DBC7F9299AB3EC00550060 /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */; };
+		25EC8F3329A0D5C900197063 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC8F3229A0D5C900197063 /* PostCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		25DBC7F4299A4BFF00550060 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		25DBC7F6299A8B2900550060 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
+		25EC8F3229A0D5C900197063 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				25DBC7F2299A4A7500550060 /* CreateNewPost.swift */,
 				25DBC7F6299A8B2900550060 /* PostsView.swift */,
 				25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */,
+				25EC8F3229A0D5C900197063 /* PostCardView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				25DBC7F3299A4A7500550060 /* CreateNewPost.swift in Sources */,
 				25DBC7F7299A8B2900550060 /* PostsView.swift in Sources */,
 				2524B9BA298D824D005999D0 /* RegisterView.swift in Sources */,
+				25EC8F3329A0D5C900197063 /* PostCardView.swift in Sources */,
 				2524B9B6298C3B61005999D0 /* LoadingView.swift in Sources */,
 				255B65EE29844FCA00A3546C /* SocialMediaApp.swift in Sources */,
 			);

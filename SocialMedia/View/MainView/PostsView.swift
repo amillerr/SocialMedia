@@ -32,6 +32,8 @@ struct PostsView: View {
         }
         .fullScreenCover(isPresented: $createNewPost) {
             CreateNewPost { post in
+                /// - Adding created post at the top of recent posts
+                recentPosts.insert(post, at: 0)
             }
         }
     }
