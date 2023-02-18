@@ -57,6 +57,9 @@ struct ReusablePostView: View {
             } onDelte: {
                 
             }
+            
+            Divider()
+                .padding(.horizontal, -15)
         }
     }
     

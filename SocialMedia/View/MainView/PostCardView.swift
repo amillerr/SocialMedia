@@ -45,8 +45,38 @@ struct PostCardView: View {
                     }
                     .frame(height: 200)
                 }
+                PostInteraction()
             }
         }
         .vAlign(.leading)
+    }
+    
+    //MARK: Like/dislike interactions
+    @ViewBuilder
+    func PostInteraction() -> some View {
+        HStack(spacing: 6) {
+            Button {
+                
+            } label: {
+                Image(systemName: post.likedIDs.contains("") ? "hand.thumbsup.fill" : "hand.thumbsup")
+            }
+            
+            Text("\(post.likedIDs.count)")
+                .font(.caption)
+                .foregroundColor(.gray)
+            
+            Button {
+                
+            } label: {
+                Image(systemName: post.dislikedIDs.contains("") ? "hand.thumbsdown.fill" : "hand.thumbsdown")
+            }
+            .padding(.leading, 25)
+            
+            Text("\(post.dislikedIDs.count)")
+                .font(.caption)
+                .foregroundColor(.gray)
+        }
+        .foregroundColor(.black)
+        .padding(.vertical, 8)
     }
 }
