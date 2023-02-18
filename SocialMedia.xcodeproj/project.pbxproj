@@ -28,6 +28,7 @@
 		25DBC7F3299A4A7500550060 /* CreateNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F2299A4A7500550060 /* CreateNewPost.swift */; };
 		25DBC7F5299A4BFF00550060 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F4299A4BFF00550060 /* Post.swift */; };
 		25DBC7F7299A8B2900550060 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F6299A8B2900550060 /* PostsView.swift */; };
+		25DBC7F9299AB3EC00550060 /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		25DBC7F2299A4A7500550060 /* CreateNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPost.swift; sourceTree = "<group>"; };
 		25DBC7F4299A4BFF00550060 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		25DBC7F6299A8B2900550060 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				259B4FDD29901517006677F7 /* ReusableProfileContent.swift */,
 				25DBC7F2299A4A7500550060 /* CreateNewPost.swift */,
 				25DBC7F6299A8B2900550060 /* PostsView.swift */,
+				25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				259B4FDE29901517006677F7 /* ReusableProfileContent.swift in Sources */,
 				25DBC7F5299A4BFF00550060 /* Post.swift in Sources */,
 				2524B9BF298D84F9005999D0 /* MainView.swift in Sources */,
+				25DBC7F9299AB3EC00550060 /* ReusablePostView.swift in Sources */,
 				255B66032984561C00A3546C /* LoginView.swift in Sources */,
 				255B65F029844FCA00A3546C /* ContentView.swift in Sources */,
 				2524B9BD298D8450005999D0 /* View+Extensions.swift in Sources */,
