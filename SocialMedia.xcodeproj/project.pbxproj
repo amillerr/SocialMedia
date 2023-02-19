@@ -30,6 +30,7 @@
 		25DBC7F7299A8B2900550060 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F6299A8B2900550060 /* PostsView.swift */; };
 		25DBC7F9299AB3EC00550060 /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */; };
 		25EC8F3329A0D5C900197063 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC8F3229A0D5C900197063 /* PostCardView.swift */; };
+		25EC8F3729A28E2C00197063 /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EC8F3629A28E2C00197063 /* SearchUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		25DBC7F6299A8B2900550060 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
 		25EC8F3229A0D5C900197063 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
+		25EC8F3629A28E2C00197063 /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,13 +91,11 @@
 		2524B9B8298D822B005999D0 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				25EC8F3529A285A400197063 /* ProfileView */,
+				25EC8F3429A2857D00197063 /* PostView */,
 				2524B9BE298D84F9005999D0 /* MainView.swift */,
-				2524B9C0298D88F4005999D0 /* ProfileView.swift */,
-				259B4FDD29901517006677F7 /* ReusableProfileContent.swift */,
 				25DBC7F2299A4A7500550060 /* CreateNewPost.swift */,
-				25DBC7F6299A8B2900550060 /* PostsView.swift */,
-				25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */,
-				25EC8F3229A0D5C900197063 /* PostCardView.swift */,
+				25EC8F3629A28E2C00197063 /* SearchUserView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -165,6 +165,25 @@
 				25DBC7F4299A4BFF00550060 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		25EC8F3429A2857D00197063 /* PostView */ = {
+			isa = PBXGroup;
+			children = (
+				25DBC7F6299A8B2900550060 /* PostsView.swift */,
+				25DBC7F8299AB3EC00550060 /* ReusablePostView.swift */,
+				25EC8F3229A0D5C900197063 /* PostCardView.swift */,
+			);
+			path = PostView;
+			sourceTree = "<group>";
+		};
+		25EC8F3529A285A400197063 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				2524B9C0298D88F4005999D0 /* ProfileView.swift */,
+				259B4FDD29901517006677F7 /* ReusableProfileContent.swift */,
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +283,7 @@
 				25EC8F3329A0D5C900197063 /* PostCardView.swift in Sources */,
 				2524B9B6298C3B61005999D0 /* LoadingView.swift in Sources */,
 				255B65EE29844FCA00A3546C /* SocialMediaApp.swift in Sources */,
+				25EC8F3729A28E2C00197063 /* SearchUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,8 +419,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -433,8 +454,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
